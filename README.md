@@ -606,3 +606,116 @@ You can now make changes on the newly created branch or view the code as it exis
 - Annotated tags with informative messages are especially useful for documenting release notes or important details about the tag.
 
 Git tags are a powerful way to mark specific points in your Git history and provide meaningful references to important milestones or releases. They help create a clear history and aid in navigating through the project's development.
+  
+### Git Revert:
+
+git revert is used to create a new commit that undoes the changes made in a previous commit. It allows you to safely undo changes without modifying the commit history.
+
+- Open a terminal or Git Bash.
+- 
+- Navigate to the repository's directory using the cd command:
+
+```
+cd /path/to/repository
+```
+
+Identify the commit you want to revert. You can use the git log command to view the commit history and find the commit hash.
+
+Execute the git revert command followed by the commit hash:
+
+```
+git revert <commit-hash>
+```
+
+This creates a new commit that undoes the changes made in the specified commit.
+
+Save and exit the commit message in the text editor that opens. It describes the revert operation.
+
+The revert commit is now created, effectively undoing the changes made in the specified commit. You can use git log to verify the commit history.
+
+### Git Reset:
+
+git reset allows you to reset the current branch to a specific commit, modifying the commit history. It has different modes that affect how the reset operation behaves.
+
+- Open a terminal or Git Bash.
+- 
+- Navigate to the repository's directory using the cd command:
+
+```
+cd /path/to/repository
+```
+
+Determine the commit you want to reset to. You can use the git log command to find the commit hash or other references.
+
+Choose the appropriate mode for the reset operation:
+
+- Soft Reset:
+
+```
+git reset --soft <commit-hash>
+```
+
+This moves the branch pointer to the specified commit while keeping the changes in the staging area and working directory. The changes from the specified commit are "uncommitted" and can be modified before creating a new commit.
+
+- Mixed Reset (default):
+
+```
+git reset --mixed <commit-hash>
+```
+
+This moves the branch pointer to the specified commit and resets the staging area, but keeps the changes in the working directory. The changes from the specified commit are "unstaged" and can be modified before staging and committing.
+
+- Hard Reset:
+
+```
+git reset --hard <commit-hash>
+```
+
+This moves the branch pointer to the specified commit and discards all changes in the staging area and working directory. The changes from the specified commit are permanently removed.
+
+Confirm the reset operation when prompted. Make sure you have a backup of any important changes before performing a hard reset.
+
+The branch is now reset to the specified commit, modifying the commit history accordingly.
+
+### .gitignore:
+
+.gitignore is a file that specifies patterns to exclude files and directories from being tracked by Git. It is used to prevent sensitive or unnecessary files from being committed.
+
+Open a text editor.
+
+Create a new file named .gitignore in the root directory of your repository.
+
+Specify the files, directories, or patterns that you want Git to ignore, each on a new line.
+
+For example:
+
+```
+# Ignore build output
+bin/
+obj/
+
+# Ignore files with specific extensions
+*.log
+*.tmp
+
+# Ignore a specific file
+config.ini
+```
+
+The # character is used for comments.
+
+Save the .gitignore file.
+
+Git will now ignore the specified files and directories when staging and committing changes.
+
+Note: If you want to ignore a file or directory that is already tracked by Git, you may need to remove it from the repository using git rm --cached <file> before adding it to the .gitignore file.
+
+Using git revert, git reset, and .gitignore provides powerful functionality in managing your Git repository:
+
+git revert allows you to safely undo changes made in a specific commit by creating a new commit that undoes those changes.
+
+git reset enables you to reset the branch to a specific commit, modifying the commit history. It provides different modes for different purposes, such as preserving changes or discarding them.
+
+.gitignore helps in specifying patterns to exclude files and directories from being tracked by Git, ensuring they are not accidentally committed.
+
+By understanding and utilizing these features, you can effectively manage and control the state and history of your Git repository.
