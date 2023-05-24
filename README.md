@@ -719,3 +719,6 @@ git reset enables you to reset the branch to a specific commit, modifying the co
 .gitignore helps in specifying patterns to exclude files and directories from being tracked by Git, ensuring they are not accidentally committed.
 
 By understanding and utilizing these features, you can effectively manage and control the state and history of your Git repository.
+  
+  
+  
