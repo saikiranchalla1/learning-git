@@ -501,3 +501,108 @@ This ensures that the changes are available to others working on the project.
 - git merge preserves the original commit history but creates a merge commit, which can be helpful for tracking merge points and maintaining an accurate project history.
 - 
 Remember to consider the collaboration workflow, branch status, and commit history when deciding between git rebase and git merge. Both commands have their strengths and appropriate use cases in different scenarios.
+  
+## Git Tags
+### What are Git Tags?
+
+Git tags are references to specific points in Git history, commonly used to mark important milestones, releases, or versions of a project. Unlike branches, tags are typically used for marking specific commits as significant and are not meant to be updated or changed over time.
+
+### Creating a Git Tag:
+
+Open a terminal or Git Bash.
+
+Navigate to the repository's directory using the cd command:
+
+```
+cd /path/to/repository
+```
+
+Check the available branches and make sure you are on the desired commit:
+
+```
+git log --oneline
+```
+
+Create an annotated tag using the git tag command. An annotated tag includes additional information such as the tagger's name, email, date, and a message describing the tag:
+
+```
+git tag -a <tag-name> -m "<tag-message>"
+```
+
+For example:
+
+```
+git tag -a v1.0 -m "Release version 1.0"
+```
+
+An alternative is to create a lightweight tag without the additional information:
+
+```
+git tag <tag-name>
+```
+
+### Viewing Git Tags:
+
+List all tags in your repository using the git tag command:
+
+```
+git tag
+```
+
+View the details of a specific tag, including the associated commit and tag message, using the git show command:
+
+```
+git show <tag-name>
+```
+
+### Pushing Tags to a Remote Repository:
+
+Push a single tag to the remote repository using the git push command:
+
+```
+git push origin <tag-name>
+```
+
+Push all tags to the remote repository using the git push command with the --tags flag:
+
+```
+git push origin --tags
+```
+
+This pushes all local tags to the remote repository.
+
+### Deleting a Git Tag:
+
+Delete a local tag using the git tag command with the -d option:
+
+```
+git tag -d <tag-name>
+```
+
+### Delete a remote tag using the git push command with the --delete flag:
+
+```
+git push origin --delete <tag-name>
+```
+
+### Checking Out a Specific Tag:
+
+Switch to a specific tag by creating a new branch at that tag:
+
+```
+git checkout -b <branch-name> <tag-name>
+```
+
+This creates a new branch from the specified tag.
+
+You can now make changes on the newly created branch or view the code as it existed at the tagged commit.
+
+### Tagging Releases and Versions:
+
+- It is common to use tags to mark releases or versions of a project. You can create tags like v1.0, v2.0, or release-1.2, depending on your preferred naming convention.
+- 
+- Consider tagging important milestones, significant commits, or stable versions of your project to provide a clear history and reference points.
+- 
+- Annotated tags with informative messages are especially useful for documenting release notes or important details about the tag.
+
+Git tags are a powerful way to mark specific points in your Git history and provide meaningful references to important milestones or releases. They help create a clear history and aid in navigating through the project's development.
